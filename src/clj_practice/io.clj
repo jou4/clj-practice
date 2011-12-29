@@ -1,17 +1,22 @@
 (ns clj-practice.io)
 
-(require '[clojure.contrib.duck-streams :as ds])
-
-(ds/pwd)
-(ds/read-lines "project.clj")
+(require '[clojure.java.io :as io])
 
 
-(ds/to-byte-array (ds/reader "project.clj"))
-(seq (ds/to-byte-array "abcde"))
+(def in-file "project.clj")
+(def out-file "out.txt")
 
 
-(let [lines (ds/read-lines "project.clj")]
-  (loop [lines lines]
-    (when-let [line (first lines)]
-      (println (str line))
-      (recur (rest lines)))))
+(println (slurp in-file))
+(spit out-file "out1\n" :append true)
+
+
+(with-open [r (io/reader in-file)]
+  (doseq [line (line-seq r)]
+    (println line)))
+
+(with-open [w (io/writer out-file :append true)]
+  (.write w "out2\n"))
+
+
+(.delete (io/file out-file))
