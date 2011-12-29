@@ -13,3 +13,6 @@
     (when-let [c (first ary)]
       (println c)
       (recur (rest ary)))))
+
+(vec (int-array [1 2 3]))
+(set (char-array [\1 \2 \3]))
