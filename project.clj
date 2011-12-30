@@ -4,4 +4,5 @@
   :dependencies [[org.clojure/clojure "1.3.0"]
                  [org.clojure/clojure-contrib "1.2.0"]]
   :dev-dependencies [[vimclojure/server "2.3.1"]
-                     [org.clojars.ibdknox/lein-nailgun "1.1.1"]])
+                     [org.clojars.oskarkv/lein-vimclojure "1.0.0-SNAPSHOT"]])
+                     ; [org.clojars.ibdknox/lein-nailgun "1.1.1"]])
